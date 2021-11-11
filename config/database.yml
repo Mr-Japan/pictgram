@@ -46,9 +46,9 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
-#
+#ras
 production:
   <<: *default
- adapter: postgresql
- encoding: unicode
- pool: 5
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
