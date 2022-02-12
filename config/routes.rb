@@ -19,8 +19,8 @@ Rails.application.routes.draw do
  get 'favorites/index', to: 'favorites#index'
  post '/favorites',     to: 'favorites#create'
  
- get '/admin', to: 'admin#index'
- #post 'admin/sign_in',        to: 'admin#sign_in'      as:"admin_sign_in"
+ get '/admin',           to: 'admin#index'                #as:"admin_index_path"
+ # post 'admin/',        to: 'admin#sign_in'      as:"admin_sign_in"
  #delete 'admin/sign_out'       to: 'admin#sign_out'     as:"admin_sign_out"   
  
 end
