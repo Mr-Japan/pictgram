@@ -3,9 +3,11 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by(email: params[:session][:email])
-    #↑ここで、フォームから送信されたメールアドレスを取得し、一致するユーザーがいるか検索しています。
-    if user && user.authenticate(params[:session][:password])
+    user = User.find_by(email: email_params[:email])  #ストロングパラメータを使用
+    # user = User.find_by(email: params[:session][:email])
+      #↑ここで、フォームから送信されたメールアドレスを取得し、一致するユーザーがいるか検索しています。
+    if user && user.authenticate(password_params[:password])   #ストロングパラメータを使用
+    # if user && user.authenticate(params[:session][:password])
       #↑次にUserのパスワードが正しいかどうか確かめています。
       #「該当のメールアドレスをもつUserが存在している。かつUserのパスワードが正しい。」場合のみtrueになる条件式です。
       log_in user
@@ -30,5 +32,12 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     @current_user = nil
   end
-
+  
+  def email_params       #strong parameterであるpermitの設定
+    params.require(:session).permit(:email)
+  end
+  
+  def password_params
+    params.require(:session).permit(:password)
+  end
 end

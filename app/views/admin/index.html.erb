@@ -1,1 +1,41 @@
-hello
+<div class="admin-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <div class="a">
+        <h1 class="text-center">This is an Admin User Page</h1>
+        <h2 class="users-list text-center">User List</h2>
+            <% @users.each do |user| %>
+            <div class="user-list-content" > 
+              <div class="individual-user">
+                  <div class="individual-user-id">id:<%= user.id %></div>
+                  <div class="individual-user-name">name:<%= user.name %></div>
+                  <div class="individual-user-email">email:<%= user.email %></div>
+              </div>
+              <div class="Individual-user-delete-btn">
+                  <%= form_with url: admin_index_path do |f| %>
+                      <%= f.submit '削除', class: 'btn btn-block btn-black col-md-3' %>
+                  <% end %>
+              </div>
+             </div>
+            <% end %>
+            <!--<h2 class="users-list text-center">Topic List</h2>-->
+            <!--<% @topics.each do |topic| %>-->
+            <!--<div class="topic-list-content" > -->
+            <!--  <div class="individual-topic">-->
+            <!--      <div class="individual-topic-id">id:<%= topic.id %></div>-->
+            <!--      <div class="individual-topic-user_id">user_id:<%= topic.user_id %></div>-->
+            <!--      <div class="individual-topic-description">description:<%= topic.description %></div>-->
+                      <!--<div class="individual-topic-image">image:<%=topic.image %></div>-->
+            <!--  </div>-->
+            <!--  <div class="Individual-topic-delete-btn">-->
+            <!--      <%= form_with url: admin_index_path do |f| %>-->
+            <!--          <%= f.submit '削除', class: 'btn btn-block btn-black col-md-3' %>-->
+            <!--      <% end %>-->
+            <!--  </div>-->
+            <!-- </div>-->
+            <!--<% end %>-->
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
