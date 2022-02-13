@@ -19,7 +19,9 @@ Rails.application.routes.draw do
  get 'favorites/index', to: 'favorites#index'
  post '/favorites',     to: 'favorites#create'
  
- get '/admin',           to: 'admin#index'                #as:"admin_index_path"
+ #resources :admin 
+ get    '/admin',             to: 'admin#index' #,                #as:"admin_index_path"
+ delete '/admin/:id',    to: 'admin#destroy_user',            as: "destroy_user"
  # post 'admin/',        to: 'admin#sign_in'      as:"admin_sign_in"
  #delete 'admin/sign_out'       to: 'admin#sign_out'     as:"admin_sign_out"   
  
