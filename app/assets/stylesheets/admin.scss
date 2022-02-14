@@ -2,14 +2,14 @@
 margin: 70px;  
 }
 
-.users-list {
+.delete-list {
     margin:2em 0;
     position: relative;
     padding: 0.5em 1.5em;
     border-top: solid 2px black;
     border-bottom: solid 2px black;
 }
-.users-list:before, .users-list:after{
+.delete-list:before, .delete-list:after{
     content: '';
     position: absolute;
     top: -10px;
@@ -18,10 +18,10 @@ margin: 70px;
     height: calc(100% + 20px);
     background-color: black;
 }
-.users-list:before {left: 10px;}
-.users-list:after {right: 10px;}
+.delete-list:before {left: 10px;}
+.delete-list:after {right: 10px;}
 
-.user-list-content {
+.list-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +33,7 @@ margin: 70px;
   background: #cde4ff;/*背景色*/
 }
 
-.individual-user {
+.individual {
   font-size: 30px;
 }
 

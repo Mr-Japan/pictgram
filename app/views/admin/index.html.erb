@@ -3,10 +3,10 @@
     <div class="b">
       <div class="a">
         <h1 class="text-center">This is an Admin User Page</h1>
-        <h2 class="users-list text-center">User List</h2>
+        <h2 class="delete-list text-center">User List</h2>
             <% @users.each do |user| %>
-              <div class="user-list-content" > 
-                <div class="individual-user">
+              <div class="list-content" > 
+                <div class="individual">
                     <div class="individual-user-id">id:<%= user.id %></div>
                     <div class="individual-user-name">name:<%= user.name %></div>
                     <div class="individual-user-email">email:<%= user.email %></div>
@@ -17,23 +17,20 @@
                </div>
             <% end %>
             
-            <!--<h2 class="users-list text-center">Topic List</h2>-->
-        <!--    <% @topics.each do |topic| %>-->
-        <!--      <div class="topic-list-content" > -->
-        <!--        <div class="individual-topic">-->
-        <!--            <div class="individual-topic-id">id:<%= topic.id %></div>-->
-        <!--            <div class="individual-topic-user_id">user_id:<%= topic.user_id %></div>-->
-        <!--            <div class="individual-topic-description">description:<%= topic.description %></div>-->
-        <!--            <div class="individual-topic-image">image:<%=topic.image %></div>-->
-        <!--        </div>-->
-        <!--        <div class="Individual-topic-delete-btn">-->
-        <!--            <%= form_with url: admin_path do |f| %>-->
-                        
-        <!--                <%= f.submit '削除', class: 'btn btn-block btn-black col-md-3' %>-->
-        <!--            <% end %>-->
-        <!--      　</div>-->
-        <!--     </div>-->
-            <!--<% end %>-->
+        <h2 class="delete-list text-center">Topic List</h2>
+            <% @topics.each do |topic| %>
+              <div class="list-content" > 
+                <div class="individual">
+                    <div class="individual-topic-id">id:<%= topic.id %></div>
+                    <div class="individual-topic-user_id">user_id:<%= topic.user_id %></div>
+                    <div class="individual-topic-description">description:<%= topic.description %></div>
+                    <div class="individual-topic-image">image:<%= image_tag(topic.image.url, size: "200x100") %></div>
+                </div>
+                <div class="Individual-topic-delete-btn">
+                    <%= link_to "削除", destroy_topic_path(topic), method: :delete, class: 'btn btn-primary btn-lg delete-btn' %>
+              　</div>
+              </div>
+            <% end %>
       </div>
     </div>
   </div>

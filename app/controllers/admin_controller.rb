@@ -21,16 +21,24 @@ class AdminController < ApplicationController
   def destroy_user
     update_users = User.find_by(id: params[:id] )
     #binding.pry
-    if update_users[:admin]
+    if update_users.admin  #[:admin]でもOK
       redirect_to admin_path, danger: 'Adminは削除できません' and return
     end
-    if update_users.delete
+    if update_users.delete  #上のIF文のand-returnとENDを削除して、この行のIF文をELSIF文にしてもOK
       redirect_to admin_path, success: 'Userの削除に成功しました'
     else
       redirect_to admin_path, danger: 'Userの削除に失敗しました'
     end
   end
   
+  def destroy_topic
+    update_topics = Topic.find_by(id: params[:id])
+    if update_topics.delete
+      redirect_to admin_path, success: 'Topicの削除に成功しました'
+    else
+      redirect_to admin_path, danger: 'Topicの削除に失敗しました'
+    end
+  end
   # def create_picture
   #   @picture = Picture.new(user_id:current_user.id, classwork_id:params[:id], **picture_params)
   #   #binding.pry
@@ -43,9 +51,6 @@ class AdminController < ApplicationController
   # end
   
   
-  def destroy_topic
-    
-  end
   
 end
   
